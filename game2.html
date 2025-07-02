@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собери фигуры - детская игра</title>
+    <link rel="stylesheet" href="./styles/game2.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="game-container">
+            <!-- Заголовок с кнопкой "Назад" слева -->
+            <div class="header">
+                <a class="back-button" @click="goBack" href="./index.html">← Назад</a>
+                <h1 class="game-title">Собери фигуры</h1>
+            </div>
+            <p class="game-subtitle">Найди пару для каждой фигуры</p>
+
+            <div class="target-section">
+                <div class="target-shape">
+                    <div class="shape" :class="currentShape.type" v-if="currentShape">
+                        {{ currentShape.emoji }}
+                    </div>
+                </div>
+                <div class="message" :class="{ 'success': gameWon }">
+                    {{ message }}
+                </div>
+            </div>
+
+            <div class="game-board">
+                <div class="pieces-container">
+                    <div v-for="(piece, index) in shapePieces" :key="index" class="shape-piece" :class="piece.type"
+                        @click="selectPiece(piece)" :style="{ backgroundColor: getShapeColor(piece.type) }">
+                        {{ piece.emoji }}
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn" @click="newGame">Новая игра</button>
+                    <button class="btn" @click="showHint" :disabled="hintUsed">Подсказка</button>
+                </div>
+            </div>
+
+            <div class="rules">
+                <h3>Как играть:</h3>
+                <ol>
+                    <li>Посмотри на фигуру вверху</li>
+                    <li>Найди такую же фигуру среди вариантов</li>
+                    <li>Нажми на правильную фигуру</li>
+                    <li>Если не получается - нажми "Подсказка"</li>
+                    <li>После правильного ответа нажми "Новая игра"</li>
+                </ol>
+            </div>
+        </div>
+
+        <footer>
+            <p>Развивающая игра для детей 3-4 лет</p>
+        </footer>
+    </div>
+
+    <script src="./vue.global.js"></script>
+    <script src="./game2.js"></script>
+</body>
+
+</html>

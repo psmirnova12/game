@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Четвертый лишний</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="./styles/game2.1.css">
+</head>
+<body>
+  <div id="app">
+    <div class="game-container">
+      <div class="game-header">
+        <a class="back-btn" @click="goBack" href="./index2.html">← Назад</a>
+        <h1 class="game-title">Четвертый лишний</h1>
+      </div>
+      
+      <div class="game-area">
+        <div class="progress">Вопрос {{ currentQuestion + 1 }} из {{ questions.length }}</div>
+        <div class="question">Найди лишний предмет:</div>
+        
+        <div class="items-container">
+          <div class="item" 
+               v-for="(item, index) in questions[currentQuestion].items" 
+               :key="index"
+               @click="selectItem(index)">
+            <img :src="item.image" :alt="item.name" class="item-image">
+            {{ item.name }}
+          </div>
+        </div>
+        
+        <div class="feedback" :class="{ 'correct': feedback === 'correct', 'incorrect': feedback === 'incorrect' }">
+          {{ message }}
+        </div>
+        
+        <button class="next-btn" @click="nextQuestion" v-if="showNextButton">
+          Следующий вопрос
+        </button>
+      </div>
+      
+      <div class="rules">
+        <h2 class="rules-title">Правила игры</h2>
+        <p class="rules-text">
+          Перед тобой четыре картинки. Три из них объединены общим признаком, 
+          а одна - лишняя. Нажми на картинку, которая, по твоему мнению, 
+          не подходит к остальным. Если ответ правильный - картинка подсветится 
+          зеленым, если ошибся - красным. После ответа нажми кнопку 
+          "Следующий вопрос" для продолжения игры.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./vue.global.js"></script>
+  <script src="./game2.1.js"></script>
+</body>
+</html>

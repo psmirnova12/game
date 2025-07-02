@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Назови слово ласково</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./styles/game2.3.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="game-container">
+            <div class="game-header">
+                <a class="back-btn" @click="goBack" href="./index2.html">← Назад</a>
+                <h1 class="game-title">Назови слово ласково</h1>
+            </div>
+
+            <div class="word-card">
+                <p>Как сказать ласково?</p>
+                <div class="word">{{ currentWord }}</div>
+
+                <div class="input-container">
+                    <input class="answer-input" v-model="userAnswer" placeholder="Напиши ответ..."
+                        @keyup.enter="checkAnswer">
+                </div>
+
+                <button class="check-btn" @click="checkAnswer">Проверить</button>
+
+                <div class="result" :class="{ 'correct': isCorrect, 'incorrect': isIncorrect }">
+                    {{ resultMessage }}
+                </div>
+
+                <button class="next-btn" @click="nextWord" v-if="showNextButton">
+                    Следующее слово
+                </button>
+            </div>
+
+            <div class="rules">
+                <h2 class="rules-title">Правила игры:</h2>
+                <p><span class="emoji">📝</span> Читай слово на карточке</p>
+                <p><span class="emoji">💭</span> Придумай, как сказать его ласково</p>
+                <p><span class="emoji">✏️</span> Напиши свой ответ в поле</p>
+                <p><span class="emoji">✅</span> Нажми "Проверить" чтобы узнать правильно ли</p>
+                <p><span class="emoji">➡️</span> Нажми "Следующее слово" чтобы продолжить</p>
+                <p><span class="emoji">🎉</span> Играй и учись с удовольствием!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./vue.global.js"></script>
+    <script src="./game2.3.js"></script>
+</body>
+
+</html>

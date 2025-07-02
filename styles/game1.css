@@ -1,0 +1,166 @@
+body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7F1E3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #FF9F43;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+
+        .back-btn:hover{
+            transition: 0.5s;
+            background-color: #42A4FF;
+        }
+
+        h1 {
+            color: #FF9F43;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .color-display {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.5s;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .color-option {
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .feedback {
+            font-size: 24px;
+            margin: 15px 0;
+            height: 30px;
+        }
+
+        .correct {
+            color: #2ECC71;
+        }
+
+        .incorrect {
+            color: #E74C3C;
+        }
+
+        .score {
+            font-size: 20px;
+            color: #576574;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .next-btn {
+            background-color: #FECA57;
+            color: #2C3A47;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .next-btn:hover {
+            background-color: #FF9F43;
+            transform: scale(1.05);
+        }
+
+        .rules {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rules h2 {
+            color: #2D98DA;
+            text-align: center;
+        }
+
+        .rules ol {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        .rules li {
+            margin-bottom: 10px;
+        }
+
+        .rules p.fun-text {
+            text-align: center;
+            color: #FF9F43;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+
+            .color-display {
+                width: 150px;
+                height: 150px;
+            }
+
+            .back-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }

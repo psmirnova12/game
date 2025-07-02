@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посчитай и кликни</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./styles/game2.2.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="game-container">
+            <div class="game-header">
+                <a class="back-btn" @click="goBack" href="./index2.html">← Назад</a>
+                <h1 class="game-title">Посчитай и кликни</h1>
+            </div>
+
+            <div class="task">Найди {{ targetCount }} {{ getCorrectWordForm }}</div>
+
+            <div class="objects-container">
+                <div class="object" v-for="(obj, index) in displayedObjects" :key="index"
+                    @click="checkAnswer(obj.type)">
+                    {{ obj.emoji }}
+                </div>
+            </div>
+
+            <div class="feedback" :class="{ 'correct': feedback === 'correct', 'incorrect': feedback === 'incorrect' }">
+                {{ message }}
+            </div>
+
+            <button class="next-btn" @click="nextTask" v-if="showNextButton">
+                Следующее задание
+            </button>
+
+            <div class="rules">
+                <h2 class="rules-title">Как играть?</h2>
+                <ul class="rules-list">
+                    <li>Прочитай задание вверху экрана</li>
+                    <li>Найди нужное количество предметов</li>
+                    <li>Кликай только на правильные картинки</li>
+                    <li>Если ответ правильный - получишь новое задание</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./vue.global.js"></script>
+    <script src="./game2.2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+:root {
+            --primary: #FF9F43;
+            --secondary: #FECA57;
+            --accent: #FF6B6B;
+            --light: #F7F1E3;
+            --dark: #576574;
+            --text: #2C3A47;
+            --success: #26de81;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #42A4FF;
+            transition: 0.5s;
+        }
+
+        .game-title {
+            color: var(--primary);
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .game-subtitle {
+            text-align: center;
+            color: var(--dark);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .target-section {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .target-shape {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f2f6;
+            border-radius: 15px;
+        }
+
+        .shape {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        .circle {
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        .triangle {
+            background-color: var(--secondary);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .square {
+            background-color: var(--primary);
+            border-radius: 10px;
+        }
+
+        .star {
+            background-color: var(--secondary);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .heart {
+            background-color: var(--accent);
+            clip-path: path('M10 6 Q15 0 20 6 T30 11 T20 20 Q15 25 10 20 Q0 10 10 6');
+        }
+
+        .game-board {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .pieces-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .shape-piece {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            border-radius: 15px;
+        }
+
+        .shape-piece:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .message {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0;
+            min-height: 30px;
+            color: var(--primary);
+        }
+
+        .success {
+            color: var(--success);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            background-color: var(--secondary);
+            color: var(--text);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .rules {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .rules h3 {
+            color: var(--primary);
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .rules ol {
+            padding-left: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .rules li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .pieces-container {
+                grid-template-columns: 1fr;
+            }
+
+            .shape-piece {
+                width: 100px;
+                height: 100px;
+            }
+
+            .target-shape,
+            .shape {
+                width: 120px;
+                height: 120px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+
+
+            }
+
+            .back-button {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }

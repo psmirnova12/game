@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игры для школьников</title>
+  <link rel="stylesheet" href="./styles/styles2.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="header-content">
+        <img src="./img/логотип.svg" alt="Логотип" class="logo">
+        <a href="index.html" class="nav-link">← Игры для малышей</a>
+      </div>
+    </header>
+    
+    <main>
+      <h1 class="page-title">Развивающие игры для детей</h1>
+      <p style="text-align: center;">Для детей 5-7 лет</p>
+      
+      <div class="games-container">
+        <div class="game-card" v-for="game in olderKidsGames" :key="game.id">
+          <div class="game-image-container">
+            <img :src="game.image" :alt="game.title" class="game-image">
+          </div>
+          <div class="game-info">
+            <h3 class="game-title">{{ game.title }}</h3>
+            <p class="game-description">{{ game.description }}</p>
+            <button class="play-btn" @click="startGame(game.id)">Играть</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <p>© 2025 Детские развивающие игры</p>
+    </footer>
+  </div>
+
+  <script src="./vue.global.js"></script>
+  <script src="./script2.js"></script>
+</body>
+</html>

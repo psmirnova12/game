@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра "Чего нет?"</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./styles/game2.4.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="game-container">
+            <div class="game-title">
+                <a class="back-btn" @click="goBack" href="./index2.html">← Назад</a>
+                <h1>Чего нет?</h1>
+            </div>
+
+            <div v-if="!gameStarted">
+                <p>Посмотри на картинки!</p>
+                <div class="items-grid">
+                    <div class="item" v-for="item in currentItems" :key="item">
+                        {{ item }}
+                    </div>
+                </div>
+                <button class="next-btn" @click="startGame">Готово!</button>
+            </div>
+
+            <div v-else>
+                <div class="question">Чего не хватает?</div>
+
+                <div class="items-grid">
+                    <div class="item" v-for="item in currentItems" :key="item">
+                        {{ item }}
+                    </div>
+                </div>
+
+                <div class="options">
+                    <button class="option" v-for="option in options" :key="option" @click="checkAnswer(option)">
+                        {{ option }}
+                    </button>
+                </div>
+
+                <div v-if="showResult" :class="['result', answerCorrect ? 'correct' : 'incorrect']">
+                    {{ answerCorrect ? 'Правильно! 👍' : 'Попробуй ещё! ❤️' }}
+                </div>
+
+                <button v-if="showResult && answerCorrect" class="next-btn" @click="nextRound">
+                    Дальше →
+                </button>
+            </div>
+
+            <div class="rules">
+                <h2>Как играть?</h2>
+                <p>1. Посмотри на 4 картинки</p>
+                <p>2. Запомни их</p>
+                <p>3. Одна исчезнет</p>
+                <p>4. Выбери, какой нет</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./vue.global.js"></script>
+    <script src="./game2.4.js"></script>
+</body>
+
+</html>

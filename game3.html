@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Найди пару - Игра для малышей</title>
+  <link rel="stylesheet" href="./styles/game3.css">
+</head>
+<body>
+  <div id="app">
+    <div class="game-container">
+      <div class="game-header">
+        <button class="back-btn" @click="goBack">← Назад</button>
+        <h1 class="game-title">Найди пару</h1>
+      </div>
+      
+      <div class="game-stats">
+        <div class="stat-item">
+          <div class="stat-value">{{ moves }}</div>
+          <div>Ходы</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">{{ matchedPairs }}/8</div>
+          <div>Найдено пар</div>
+        </div>
+      </div>
+      
+      <div class="game-board">
+        <div 
+          v-for="(card, index) in cards" 
+          :key="index"
+          class="card"
+          :class="{ 'flipped': card.flipped, 'matched': card.matched }"
+          @click="flipCard(index)"
+        >
+          <div class="card-inner">
+            <div class="card-face card-front">
+              ?
+            </div>
+            <div class="card-face card-back">
+              <img :src="card.image" :alt="'Изображение ' + card.type">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="restart-btn" @click="initGame">Играть снова</button>
+      
+      <div class="game-rules">
+        <h3 class="rules-title">Как играть?</h3>
+        <ul class="rules-list">
+          <li>Найди две одинаковые картинки</li>
+          <li>Нажимай на карточки, чтобы открыть их</li>
+          <li>Если картинки совпали - они исчезнут</li>
+          <li>Если не совпали - перевернутся обратно</li>
+          <li>Найди все 8 пар быстрее!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="./vue.global.js"></script>
+  <script src="./game3.js"></script>
+</body>
+</html>

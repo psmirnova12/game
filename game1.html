@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учим цвета - Игра для детей</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./styles/game1.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="game-container">
+            <button class="back-btn" @click="goBack">← Назад</button>
+            <h1>Учим цвета</h1>
+            <p>Выбери правильное название цвета</p>
+
+            <div class="color-display" :style="{ backgroundColor: currentColor }"></div>
+
+            <div class="score">
+                Правильно: {{ score }} из {{ Object.keys(colors).length }}
+            </div>
+
+            <div class="feedback" :class="{ correct: isCorrect, incorrect: !isCorrect && isAnswered }">
+                {{ feedbackMessage }}
+            </div>
+
+            <div class="options-container">
+                <button v-for="(option, index) in options" :key="index" class="color-option"
+                    :style="{ backgroundColor: getColorCode(option) }" @click="checkAnswer(option)"
+                    :disabled="isAnswered">
+                    {{ option }}
+                </button>
+            </div>
+
+            <button class="next-btn" @click="nextQuestion" v-if="isAnswered && !gameFinished">
+                Следующий цвет
+            </button>
+
+            <button class="next-btn" @click="restartGame" v-if="gameFinished">
+                Играть снова
+            </button>
+        </div>
+
+        <div class="rules">
+            <h2>Как играть?</h2>
+            <ol>
+                <li>Посмотри на цвет круга в центре экрана</li>
+                <li>Выбери из предложенных вариантов правильное название этого цвета</li>
+                <li>Если ответил правильно - получишь 1 балл!</li>
+                <li>После ответа нажми "Следующий цвет" для продолжения</li>
+                <li>Игра продолжается пока не закончатся все цвета</li>
+                <li>В конце ты увидишь свой результат и сможешь начать заново</li>
+            </ol>
+            <p class="fun-text">
+                Учись и играй с удовольствием! 🎨
+            </p>
+        </div>
+    </div>
+
+    <script src="./vue.global.js"></script>
+    <script src="./game1.js"></script>
+</body>
+
+</html>

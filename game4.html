@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игра "Времена года"</title>
+  <link rel="stylesheet" href="./styles/game4.css">
+</head>
+<body>
+  <div id="app">
+    <div class="game-container">
+      <div class="game-header">
+        <button class="back-btn" @click="goBack">← Назад</button>
+        <h1 class="game-title">Времена года</h1>
+      </div>
+
+      <img :src="currentSeason.image" :alt="currentSeason.name" class="season-image">
+
+      <div class="feedback" :class="{ 'correct': feedback === 'correct', 'incorrect': feedback === 'incorrect' }">
+        {{ message }}
+      </div>
+
+      <div class="options-container">
+        <button 
+          v-for="season in seasons" 
+          :key="season.id" 
+          class="season-option" 
+          @click="checkAnswer(season.id)"
+        >
+          {{ season.name }}
+        </button>
+      </div>
+
+      <div class="rules-container">
+        <h2 class="rules-title">Как играть?</h2>
+        <ul class="rules-list">
+          <li>Посмотри на картинку</li>
+          <li>Выбери, какое время года на ней изображено</li>
+          <li>Если ответишь правильно - получишь новую картинку!</li>
+          <li>Учись различать зиму, весну, лето и осень</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="./vue.global.js"></script>
+  <script src="./game4.js"></script>
+</body>
+</html>
