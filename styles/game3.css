@@ -27,6 +27,7 @@
     
     .back-btn {
       position: absolute;
+      width: 21%;
       left: 20px;
       background-color: var(--primary);
       color: white;
